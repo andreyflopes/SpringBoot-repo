@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entities.UsuarioEntity;
+import com.example.demo.entities.Usuario;
 import com.example.demo.services.UsuarioService;
 
 
@@ -27,10 +28,8 @@ public class UsuarioController {
 
     @PostMapping("/post")
     public ResponseEntity<?> postUsers(@RequestBody String usuario) {
-        
-        
-        return null;
-        
+        Usuario addedUser = (Usuario) this.usuarioService.add(usuario);
+        return new ResponseEntity<>(addedUser, HttpStatus.CREATED);
         
        
     }

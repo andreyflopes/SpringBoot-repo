@@ -1,6 +1,4 @@
-package com.example.demo.entities;
-
-
+package com.example.users.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,9 +8,9 @@ import jakarta.persistence.Id;
 
 
 @Entity(name="usuario")
-public class UsuarioEntity {
+public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private Long id;
 
@@ -21,9 +19,6 @@ public class UsuarioEntity {
 
     @Column(name = "email")
     private String email;
-
-    @Column(name="idade")
-    private int idade;
 
     public Long getId() {
         return id;
@@ -57,11 +52,7 @@ public class UsuarioEntity {
         this.idade = idade;
     }
 
-   
-    }
+    @Column(name="idade")
+    private int idade;
 
-    
-
-    
-  
-
+}
